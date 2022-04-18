@@ -9,7 +9,7 @@ export abstract class Reduce {
      */
     constructor(
         protected array: number[],
-    ){}
+    ) {}
 
     /**
      * Ejecuta el algoritmo
@@ -20,13 +20,12 @@ export abstract class Reduce {
         let n: number = this.reduce();
         this.after();
         return n;
-
     }
 
     /**
      * Llama a la implementación del método reduce en las clases hijas
      */
-    abstract reduce(): number;
+     protected abstract reduce(): number;
 
     /**
      * Notifica que se empieza el algoritmo. Se implementa opcionalmente en las clases hijas
