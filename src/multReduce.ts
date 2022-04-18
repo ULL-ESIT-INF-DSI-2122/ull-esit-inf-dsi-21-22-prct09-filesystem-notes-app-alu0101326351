@@ -9,7 +9,7 @@ export class MultReduce extends Reduce {
      * @returns 
      */
     public reduce(): number {
-        let result: number = 0;
+        let result: number = 1;
         this.array.map((n) => {
             result *= n;
         });
