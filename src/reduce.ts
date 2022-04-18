@@ -27,6 +27,14 @@ export abstract class Reduce {
      * Llama a la implementación del método reduce en las clases hijas
      */
     abstract reduce(): number;
+
+    /**
+     * Notifica que se empieza el algoritmo. Se implementa opcionalmente en las clases hijas
+     */
     protected before() {};
+
+    /**
+     * Notifica que se empieza el algoritmo. Se implementa opcionalmente en las clases hijas
+     */
     protected after() {};
 };
