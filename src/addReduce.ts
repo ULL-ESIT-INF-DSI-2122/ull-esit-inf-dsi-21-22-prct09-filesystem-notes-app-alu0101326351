@@ -16,4 +16,18 @@ export class AddReduce extends Reduce {
 
         return result;
     }
+
+    /**
+     * Notifica que se empieza el algoritmo
+     */
+    protected before() {
+        console.log("Empezamos a reducir el array :)");
+    }
+
+    /**
+     * Notifica que se termino de reducir el array
+     */
+    protected after() {
+        console.log("Terminado de reducir")
+    }
 }

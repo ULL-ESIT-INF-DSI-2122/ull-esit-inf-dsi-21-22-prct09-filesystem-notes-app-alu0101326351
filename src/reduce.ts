@@ -16,11 +16,17 @@ export abstract class Reduce {
      * @returns 
      */
     public run(): number {
-        return this.reduce()
+        this.before();
+        let n: number = this.reduce();
+        this.after();
+        return n;
+
     }
 
     /**
      * Llama a la implementación del método reduce en las clases hijas
      */
     abstract reduce(): number;
+    protected before() {};
+    protected after() {};
 };
