@@ -194,7 +194,7 @@ La clase ReadNote recibe el usuario y el titulo de la nota que se quiere leer. S
                             console.log(chalk.yellow(`${note.body}`));
                             break;
 
-                        case 'green':
+                        case 'green': 
                             console.log(chalk.green(`TITLE: ${note.title}\n`));
                             console.log(chalk.green(`${note.body}`));
                             break;
