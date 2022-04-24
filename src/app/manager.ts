@@ -2,7 +2,17 @@ import * as chalk from 'chalk';
 import * as fs from 'fs';
 import {Note} from './note';
 
+/**
+ * Clase para gestionar el añadido de una nota
+ */
 export class AddNote {
+    /**
+     * Recibe el usuario titulo, cuerpo y color de la nota para crear un json en el directorio del usuario
+     * @param user string
+     * @param title string
+     * @param body string
+     * @param color string
+     */
     constructor(
         private user: string, 
         private title: string,
@@ -10,6 +20,9 @@ export class AddNote {
         private color:string
     ) {}
 
+    /**
+     * Implementa la lógica para añadir la nota
+     */
     public logic() {
         if (!fs.existsSync(`notes/${this.user}`)) {
             fs.mkdirSync(`notes/${this.user}`);
@@ -31,13 +44,23 @@ export class AddNote {
     }
 }
 
-
+/**
+ * Clase para gestionar la eliminación de una nota
+ */
 export class RemoveNote {
+    /**
+     * Recibe el usuario y el titulo de la nota para eliminar el fichero json correspondiente a dicha nota
+     * @param user string
+     * @param title string
+     */
     constructor(
         private user: string, 
         private title: string,
     ) {}
 
+    /**
+     * Implementa la lógica para eliminar la nota
+     */
     public logic() {
         if (fs.existsSync(`notes/${this.user}`)) {
             if (fs.existsSync(`notes/${this.user}/${this.title}.json`)) {
@@ -56,11 +79,21 @@ export class RemoveNote {
     }
 }
 
+/**
+ * Clase para gestionar el listado de las notas de un usuario
+ */
 export class ListNotes {
+    /**
+     * Recibe el nombre del usuario para listar los títulos de todas sus notas
+     * @param user string
+     */
     constructor(
         private user: string, 
     ) {}
 
+    /**
+     * Implementa la lógica para el listado de las notas
+     */
     public logic() {
         if (fs.existsSync(`notes/${this.user}`)) {
             console.log(chalk.green(`Notas de ${this.user}`));
@@ -90,12 +123,23 @@ export class ListNotes {
     }
 }
 
+/**
+ * Clase para gestionar la lectura de una nota
+ */
 export class ReadNote {
+    /**
+     * Recibe el usuario y el título de la nota que se quiere leer
+     * @param user string
+     * @param title string
+     */
     constructor(
         private user: string, 
         private title: string,
     ) {}
 
+    /**
+     * Implementa la lógica para la lectura de una nota
+     */
     public logic() {
         if (fs.existsSync(`notes/${this.user}`)) {
             if (fs.existsSync(`notes/${this.user}/${this.title}.json`)) {
@@ -128,8 +172,17 @@ export class ReadNote {
     }
 }
 
-
+/**
+ * Clase para gestionar el modificado de una nota
+ */
 export class ModifyNote {
+    /**
+     * Recibe el usuario y el título de la nota que se quiere modificar y su nuevo contenido
+     * @param user string
+     * @param title string
+     * @param body string
+     * @param color string
+     */
     constructor(
         private user: string, 
         private title: string,
@@ -137,6 +190,9 @@ export class ModifyNote {
         private color:string
     ) {}
 
+    /**
+     * Implementa la lógica para la modificación de una nota
+     */
     public logic() {
         if (fs.existsSync(`notes/${this.user}`)) {
             if (fs.existsSync(`notes/${this.user}/${this.title}.json`)) 
