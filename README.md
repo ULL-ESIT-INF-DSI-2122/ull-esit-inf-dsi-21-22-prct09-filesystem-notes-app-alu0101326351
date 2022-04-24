@@ -203,3 +203,7 @@ La clase ReadNote recibe el usuario y el titulo de la nota que se quiere leer. S
             } else console.log(chalk.red('No existe registro del usuario'));
         }
     }
+    
+## Prueba de ejecución
+
+![ejec](capturas/ejec.png)
